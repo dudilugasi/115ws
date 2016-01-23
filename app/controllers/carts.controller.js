@@ -49,3 +49,24 @@ exports.getFavoriteOffer = function (req, res) {
         res.status(200).json(docs);
     });
 };
+
+exports.countPassed = function (req, res) {
+    Carts.where({'passed':true}).count(function(err,docs){
+        res.status(200).json(docs);
+    })
+};
+exports.countFailed = function (req, res) {
+    Carts.where({'passed':false}).count(function(err,docs){
+        res.status(200).json(docs);
+    })
+};
+exports.countMale = function (req, res) {
+    Carts.where({'sex':"zahar"}).count(function(err,docs){
+        res.status(200).json(docs);
+    })
+};
+exports.countFemale = function (req, res) {
+    Carts.where({'passed':"female"}).count(function(err,docs){
+        res.status(200).json(docs);
+    })
+};
