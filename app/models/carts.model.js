@@ -11,6 +11,7 @@ var cartSchema = new Schema({
     sex : String,
     children : Number,
     date: Date,
+    marital : String,
     city : String,
     answeredSMS : [String],
     rejectedSMS : [String],
