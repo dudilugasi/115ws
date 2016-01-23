@@ -13,30 +13,35 @@ exports.getPopularProducts = function (req, res) {
     Carts.aggregate([
     {$unwind:"$products"},
     {$group: {_id : "$products", count: { $sum : 1}}}
-    //{$group:{_id:null, clrs: {$push : "$products"} }},
-    //{$project:{_id:0, products: "$clrs"}}
     ]).sort({count : -1}).exec(function(err,docs){
         res.status(200).json(docs);
     });
 };
+
+
+exports.getRejectedProducts = function (req, res) {
+    Carts.aggregate([
+        {$unwind:"$rejectedProducts"},
+        {$group: {_id : "$rejectedProducts", count: { $sum : 1}}}
+    ]).sort({count : -1}).exec(function(err,docs){
+        res.status(200).json(docs);
+    });
+};
+
 
 exports.getFavoriteRelative = function (req, res) {
     Carts.aggregate([
         {$unwind:"$answeredSMS"},
         {$group: {_id : "$answeredSMS", count: { $sum : 1}}}
-        //{$group:{_id:null, clrs: {$push : "$products"} }},
-        //{$project:{_id:0, products: "$clrs"}}
     ]).sort({count : -1}).exec(function(err,docs){
         res.status(200).json(docs);
     });
 };
 
-exports.answeredOffer = function (req, res) {
+exports.getFavoriteOffer = function (req, res) {
     Carts.aggregate([
         {$unwind:"$answeredOffer"},
         {$group: {_id : "$answeredOffer", count: { $sum : 1}}}
-        //{$group:{_id:null, clrs: {$push : "$products"} }},
-        //{$project:{_id:0, products: "$clrs"}}
     ]).sort({count : -1}).exec(function(err,docs){
         res.status(200).json(docs);
     });
