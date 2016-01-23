@@ -10,6 +10,7 @@ var productSchema = new Schema({
     pyramid : String,
     unit: String,
     price: Number,
+    e_id: String,
     category : String
 },{collection: 'products'});
 
