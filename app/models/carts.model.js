@@ -11,7 +11,9 @@ var cartSchema = new Schema({
     sex : String,
     city : String,
     answeredSMS : [String],
-    rejectedSMS : [String]
+    rejectedSMS : [String],
+    rejectedProducts: [String],
+    answeredOffer: [int]
 },{collection: 'carts'});
 
 // Create the 'Recipe' model out of the 'recipeSchema'
