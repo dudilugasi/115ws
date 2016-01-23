@@ -5,43 +5,39 @@ var mongoose = require('mongoose'),
         util = require('./util.controller');
 
 exports.getSexData = function (req, res) {
-    //mock data for now
-    var data = {
-        "name": "מין",
-        "series" : [
-            
-            {
-                "name" : "הצליחו",
-                "values" : [
-                    {
-                        "name" : "נשים",
-                        "value" : 10,
-                        "color" : "#EC008C"
-                    },
-                    {
-                        "name" : "גברים",
-                        "value" : 4,
-                        "color" : "#00AEEF"
-                    }
-                ]
-            },
-            {
-                "name" : "לא הצליחו",
-                "values" : [
-                    {
-                        "name" : "נשים",
-                        "value" : -8,
-                        "color" : "#F8C1D9"
-                    },
-                    {
-                        "name" : "גברים",
-                        "value" : -5,
-                        "color" : "#ABE1FA"
-                    }
-                ]
-            }
-        ]
-    };
-    res.status(200).json(data);
+
+    res.status(200).json();
 };
 
+exports.getPopularProducts = function (req, res) {
+    Carts.aggregate([
+    {$unwind:"$products"},
+    {$group: {_id : "$products", count: { $sum : 1}}}
+    //{$group:{_id:null, clrs: {$push : "$products"} }},
+    //{$project:{_id:0, products: "$clrs"}}
+    ]).sort({count : -1}).exec(function(err,docs){
+        res.status(200).json(docs);
+    });
+};
+
+exports.getFavoriteRelative = function (req, res) {
+    Carts.aggregate([
+        {$unwind:"$answeredSMS"},
+        {$group: {_id : "$answeredSMS", count: { $sum : 1}}}
+        //{$group:{_id:null, clrs: {$push : "$products"} }},
+        //{$project:{_id:0, products: "$clrs"}}
+    ]).sort({count : -1}).exec(function(err,docs){
+        res.status(200).json(docs);
+    });
+};
+
+exports.answeredOffer = function (req, res) {
+    Carts.aggregate([
+        {$unwind:"$answeredOffer"},
+        {$group: {_id : "$answeredOffer", count: { $sum : 1}}}
+        //{$group:{_id:null, clrs: {$push : "$products"} }},
+        //{$project:{_id:0, products: "$clrs"}}
+    ]).sort({count : -1}).exec(function(err,docs){
+        res.status(200).json(docs);
+    });
+};
