@@ -9,6 +9,8 @@ var cartSchema = new Schema({
     passed : Boolean,
     quit : Boolean,
     sex : String,
+    children : Number,
+    date: Date,
     city : String,
     answeredSMS : [String],
     rejectedSMS : [String],

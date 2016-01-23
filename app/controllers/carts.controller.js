@@ -4,10 +4,13 @@ var mongoose = require('mongoose'),
         url = require('url'),
         util = require('./util.controller');
 
-exports.getSexData = function (req, res) {
+exports.getCarts = function (req, res) {
+    Carts.find({},function(err,docs){
 
-    res.status(200).json();
+        res.status(200).json(docs);
+    });
 };
+
 
 exports.getPopularProducts = function (req, res) {
     Carts.aggregate([
