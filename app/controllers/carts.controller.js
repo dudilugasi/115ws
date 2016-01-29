@@ -66,7 +66,7 @@ exports.countMale = function (req, res) {
     })
 };
 exports.countFemale = function (req, res) {
-    Carts.where({'passed':"female"}).count(function(err,docs){
+    Carts.where({'sex':"female"}).count(function(err,docs){
         res.status(200).json(docs);
     })
 };
