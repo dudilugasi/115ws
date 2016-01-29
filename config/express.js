@@ -26,6 +26,7 @@ module.exports = function() {
     require('../app/routes/products.routes.js')(app);
     require('../app/routes/carts.routes.js')(app);
     require('../app/routes/sms.routes.js')(app);
+    require('../app/routes/gifts.routes.js')(app);
 
 
     // Configure static file serving

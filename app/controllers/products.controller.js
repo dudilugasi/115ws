@@ -44,21 +44,3 @@ exports.getProductsDividedByCat = function (req, res) {
                 }
             });
 };
-
-//exports.upload = function (req, res) {
-//    
-//    var products_arr = require('../../convertcsv.json');
-//    for (var i = 0 ; i < products_arr.length ; i++) {
-//        products_arr[i].id = i+1;
-//    }
-//    
-//    Products.collection.insert(products_arr,function(err,data){
-//        if (err)
-//            return res.status(400).send({
-//                message: util.getErrorMessage(err)
-//            });
-//        else
-//            res.status(200).send({success: "success"});
-//    });
-//
-//};
