@@ -1,5 +1,6 @@
 //Load the module dependencies
 var express = require('express');
+var bodyParser = require('body-parser');
 
 //Define the express configuration
 module.exports = function() {
@@ -16,6 +17,10 @@ module.exports = function() {
         res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
         next();
     });
+
+    app.use(bodyParser.json()); // for parsing application/json
+    app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+
 
     // Load the routing files
     require('../app/routes/products.routes.js')(app);

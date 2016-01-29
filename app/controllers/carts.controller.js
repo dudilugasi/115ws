@@ -70,3 +70,15 @@ exports.countFemale = function (req, res) {
         res.status(200).json(docs);
     })
 };
+
+exports.saveCart = function (req,res) {
+    var cart = new Carts(req.body);
+    cart.save(function(err){
+        if (err) {
+            res.status(404).json();
+        }
+        else {
+            res.status(200).json();
+        }
+    })
+};

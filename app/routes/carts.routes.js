@@ -14,5 +14,6 @@ module.exports = function(app) {
     app.get('/carts/count/male',carts.countMale);
     app.get('/carts/count/female',carts.countFemale);
 
+    app.post('/save_cart',carts.saveCart);
 };
 
