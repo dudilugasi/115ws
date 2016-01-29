@@ -20,6 +20,8 @@ module.exports = function() {
     // Load the routing files
     require('../app/routes/products.routes.js')(app);
     require('../app/routes/carts.routes.js')(app);
+    require('../app/routes/sms.routes.js')(app);
+
 
     // Configure static file serving
     app.use(express.static('./public'));

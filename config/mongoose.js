@@ -10,6 +10,7 @@ module.exports = function() {
     //Load the application models
     require('../app/models/products.model');
     require('../app/models/carts.model');
+    require('../app/models/sms.model');
 
     //Return the Mongoose connection instance
     return db;
