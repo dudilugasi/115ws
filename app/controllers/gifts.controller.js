@@ -9,7 +9,7 @@ exports.getGifts = function (req, res) {
             {
                 $group:
                 {
-                    _id: "$gift",
+                    _id: "$popup",
                     items: {$push: "$$ROOT"}
                 }
             }
