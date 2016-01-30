@@ -8,7 +8,7 @@ var smsSchema = new Schema({
     status : String,
     children : Boolean,
     sex: String,
-    itemId: [Number],
+    itemId: [String],
     from: String,
     text: String
 },{collection: 'sms'});
