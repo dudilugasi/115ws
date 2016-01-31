@@ -10,8 +10,7 @@ var smsSchema = new Schema({
     sex: String,
     itemId: [String],
     from: String,
-    text: String,
-    image: String
+    text: String
 },{collection: 'sms'});
 
 // Create the 'Recipe' model out of the 'recipeSchema'
