@@ -15,7 +15,8 @@ var giftSchema = new Schema({
     title: String,
     triggerItem: String,
     giftItem: [giftItemSchema],
-    gift: Boolean
+    gift: Boolean,
+    image: String
 },{collection: 'gifts'});
 
 // Create the 'Recipe' model out of the 'recipeSchema'
