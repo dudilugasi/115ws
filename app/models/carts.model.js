@@ -19,7 +19,8 @@ var cartSchema = new Schema({
     answeredOffer: [Number],
     message: String,
     total: Number,
-    strikes: Number
+    strikes: Number,
+    budget: Number
 },{collection: 'carts'});
 
 // Create the 'Recipe' model out of the 'recipeSchema'
